@@ -30,3 +30,5 @@ https://github.com/pittsblake/atlanta-rides
 ## Wireframe and ERD
 
 ![ERD](https://i.imgur.com/NvAD6cn.png)
+![Wireframe1](https://i.imgur.com/5BcLgqD.png)
+![Wireframe2](https://i.imgur.com/0Kfea6y.png)
