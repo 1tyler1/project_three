@@ -23,3 +23,8 @@ https://git.generalassemb.ly/atl-wdi/wdi-curriculum/tree/master/projects/unit_03
 https://github.com/rubinj30/wdi-project-3
 
 https://github.com/pittsblake/atlanta-rides
+
+## Wireframe and ERD
+
+![ERD]
+(https://imgur.com/a/DmJylSE)
