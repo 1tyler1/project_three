@@ -9,23 +9,23 @@ For my project three, my app is aimed at creating a series of progress photos fo
 
 ## Technical Requirements
 
-https://www.npmjs.com/package/bcrypt
+* https://www.npmjs.com/package/bcrypt
 
-https://www.youtube.com/watch?v=s1swJLYxLAA&t=2264s
+* https://www.youtube.com/watch?v=s1swJLYxLAA&t=2264s
 
-https://github.com/keithweaver?tab=repositories
+* https://github.com/keithweaver?tab=repositories
 
-https://tylermcginnis.com/reactjs-tutorial-a-comprehensive-guide-to-building-apps-with-react/
+* https://tylermcginnis.com/reactjs-tutorial-a-comprehensive-guide-to-building-apps-with-react/
 
-https://git.generalassemb.ly/atl-wdi/wdi-curriculum/tree/master/projects/unit_03
+* https://git.generalassemb.ly/atl-wdi/wdi-curriculum/tree/master/projects/unit_03
 
-https://github.com/jacksonmcgehee/wdi-third-project
+* https://github.com/jacksonmcgehee/wdi-third-project
 
-https://git.generalassemb.ly/atl-wdi/wdi-curriculum/tree/master/projects/unit_03
+* https://git.generalassemb.ly/atl-wdi/wdi-curriculum/tree/master/projects/unit_03
 
-https://github.com/rubinj30/wdi-project-3
+* https://github.com/rubinj30/wdi-project-3
 
-https://github.com/pittsblake/atlanta-rides
+* https://github.com/pittsblake/atlanta-rides
 
 ## Wireframe and ERD
 
