@@ -1,5 +1,8 @@
 # Before and After Progress App
 
+
+Full-stack Application using React.js, Express.js, MongoDB and Node.js (Nodemon preferred)
+
 ## About
 
 For my project three, my app is aimed at creating a series of progress photos for someone with plans to lose weight. This app will make the weight loss process much easier and will allow the user to see the comparison of changes in their body. My goal is to have an upload middleware that allows photos to be uploaded. I also would like to have a login protocol that will verify the password using bcrypt.
