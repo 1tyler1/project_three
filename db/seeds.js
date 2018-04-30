@@ -1,19 +1,27 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-const { Creature } = require('./schema')
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI)
 
-const db = mongoose.connection
-// using async/await
-const saved = async () => {
-  await Creature.remove()
-  const luke = new Creature({name: 'Luke', description: 'Jedi'})
-  await luke.save()
-  const darth = new Creature({name: 'Darth Vader', description: 'Father of Luke'})
-  await darth.save()
-  db.close()
-}
+const { User, Photo } = require('./schema')
 
-saved()
+const Day_1 = new Photo({
+  title: 'Starting my weight loss journey',
+  description: "I'm excited about finally committing to making a change"
+})
+const Day_15 = new Photo({
+  title: 'Build a Car',
+  description: "Gas is too expensive. I'm gonna build a car that doesn't need gas"
+})
+const Tyler = new User({
+  userName: 'Tyler_fr0st',
+  password: 'youllneverguess1',
+  ideas: [Day_1, Day_15]
+})
+
+User.remove({})
+  .then(() => Tyler.save())
+  .then(() => console.log('Successful Save'))
+  .then(() => mongoose.connection.close())
+  .catch(console.error)
