@@ -1,17 +1,14 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 class HomePage extends Component {
-  render() {
+  render(){
     return (
       <div>
 
-        <div>
           <Link to='/login'>Login Link</Link>
-        </div>
-
-    
 
       </div>
     )
