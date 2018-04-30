@@ -12,7 +12,7 @@ class LogIn extends Component {
   }
 
   getAllUsers = () => {
-    axios.get('/api/users')
+    axios.get('localhost:3001/api/users')
       .then(res => {
         console.log("Saving users to state", res.data)
         this.setState({ users: res.data })

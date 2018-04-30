@@ -10,17 +10,21 @@ import PhotoPage from './components/PhotoPage'
 class App extends Component {
   render() {
     return (
+
       <Router>
         <div>
           <Switch>
+
          
             <Route exact path="/" component={HomePage} />
-            <Route path="/login" component={LogInPage} />
+            <Route path="/user" component={LogInPage} />
             <Route path="/user/:userId" component={PhotoPage} />
           
           </Switch>
         </div>
       </Router>
+
+     
     )
   }
 }

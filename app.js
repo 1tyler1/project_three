@@ -24,11 +24,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')
 })
 
-const UsersController = require('./controller/users')
+const UsersController = require('./Controller/users')
 app.use('/api/users', UsersController)
 
 
-const PhotosController = require('./controller/photos')
+const PhotosController = require('./Controller/photos')
 app.use('/api/users/:userId/photos', PhotosController)
 
 const PORT = process.env.PORT || 3001;
