@@ -11,8 +11,8 @@ const Day_1 = new Photo({
   description: "I'm excited about finally committing to making a change"
 })
 const Day_15 = new Photo({
-  title: 'Build a Car',
-  description: "Gas is too expensive. I'm gonna build a car that doesn't need gas"
+  title: 'Half way through',
+  description: "I can finally see the changes in my body!!"
 })
 const Tyler = new User({
   userName: 'Tyler_fr0st',
