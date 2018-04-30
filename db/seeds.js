@@ -17,7 +17,7 @@ const Day_15 = new Photo({
 const Tyler = new User({
   userName: 'Tyler_fr0st',
   password: 'youllneverguess1',
-  ideas: [Day_1, Day_15]
+  photos: [Day_1, Day_15]
 })
 
 User.remove({})
