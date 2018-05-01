@@ -36,11 +36,13 @@ class PhotoPage extends Component {
     axios.post(`/login/${this.state.user._id}/photos`)
       .then((res) => {
         console.log("RESPONSE FROM NEW photo", res.data)
+        this.setState({ photos: res.data.photos.reverse()})
       })
   }
 
   deletePhoto = (photoId) => {
-    axios.delete(`/login/${this.state.user._id}/photos/${photoId}`)
+    console.log("hitting photo id", photoId)
+    axios.delete(`/api/users/${this.state.user._id}/photos/${photoId}`)
       .then((response) => {
         console.log(response)
       })
@@ -58,7 +60,9 @@ class PhotoPage extends Component {
   }
 
   updatePhoto = (photo) => {
-    console.log("UPDATING photo IN DB")
+    
+    console.log("UPDATING PHOTO IN DB")
+    console.log("User Id being Updated", this.state.user._id)
     axios.patch(`/login/${this.state.user.id}/photos/${photo._id}`, { photo })
       .then(res => {
         this.setState({ photos: res.data.photos })

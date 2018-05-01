@@ -4,8 +4,10 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   User.find()
+  console.log("this is your user", user)
     .then(users => {
       res.json(users)
+      console.log(users)
     })
     .catch((err) => console.log(err))
 })

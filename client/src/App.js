@@ -10,7 +10,7 @@ import PhotoPage from './components/PhotoPage'
 class App extends Component {
   render() {
     return (
-
+<div>
       <Router>
         <div>
           <Switch>
@@ -24,7 +24,9 @@ class App extends Component {
         </div>
       </Router>
 
-     
+      <footer class="footer">Tyler Lauren Designs</footer>
+
+     </div>
     )
   }
 }

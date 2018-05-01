@@ -4,7 +4,11 @@ import axios from 'axios'
 
 class LogIn extends Component {
   state = {
-    users: []
+    users: [],
+    user: {
+      userName: '',
+      password: ''
+    }
   }
 
   componentDidMount() {
@@ -12,7 +16,7 @@ class LogIn extends Component {
   }
 
   getAllUsers = () => {
-    axios.get('localhost:3001/api/users')
+    axios.get('/api/users')
       .then(res => {
         console.log("Saving users to state", res.data)
         this.setState({ users: res.data })
@@ -23,10 +27,11 @@ class LogIn extends Component {
   }
 
   createUser = () => {
-    axios.post('/api/users', {
-      user: [...this.state.user]
-    }).then((res) => {
-      this.setState({ redirectToHome: true, createdUser: res.data })
+    axios.post('/api/users', { user: this.state.user })
+    .then((res) => {
+      const users = [...this.state.users]
+      users.push(res.data)
+      this.setState({users})
     })
   }
 
@@ -53,8 +58,8 @@ class LogIn extends Component {
 
 
     return (
-      <div>
-        <div>
+      <div class="form">
+        <div class="Link-style">
           <Link to='/'>Return Home</Link>
         </div>
         <div>
@@ -72,7 +77,7 @@ class LogIn extends Component {
             <label htmlFor="password">Password</label>
             <input onChange={this.handleChange} name="password" type="text" value={this.state.password} />
           </div>
-          <button>Sign Up</button>
+          <button class="waves-effect waves-light btn center-align" to='/login'>Sign Up</button>
         </form>
       </div>
     )

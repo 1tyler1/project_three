@@ -18,10 +18,10 @@ connection.on('error', (err) => {
 });
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/client/public/'));
+app.use(express.static(__dirname + '/client/build/'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/public/index.html')
+  res.sendFile(__dirname + '/client/build/index.html')
 })
 
 const UsersController = require('./Controller/users')
