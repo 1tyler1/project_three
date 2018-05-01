@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 
 const app = express();
 mongoose.Promise = global.Promise;
@@ -18,10 +18,10 @@ connection.on('error', (err) => {
 });
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/client/build/'));
+app.use(express.static(__dirname + '/client/public/'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/build/index.html')
+  res.sendFile(__dirname + '/client/public/index.html')
 })
 
 const UsersController = require('./Controller/users')

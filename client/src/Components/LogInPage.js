@@ -57,10 +57,12 @@ class LogIn extends Component {
         <div>
           <Link to='/'>Return Home</Link>
         </div>
-        <h1>Log-In</h1>
-        <h3>Please Select an Existing User</h3>
+        <div>
+        <h3>Log-In</h3>
+        <h6>Please Select an Existing User</h6>
         {userLinks}
-        <h1>Sign-Up</h1>
+        </div>
+        <h3>Sign-Up</h3>
         <form onSubmit={this.handleSignUp}>
           <div>
             <label htmlFor="userName">User Name</label>

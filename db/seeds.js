@@ -1,16 +1,16 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-
-mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI)
+mongoose.Promise = global.Promise
+
 
 const { User, Photo } = require('./schema')
 
-const Day_1 = new Photo({
+const day_1 = new Photo({
   title: 'Starting my weight loss journey',
   description: "I'm excited about finally committing to making a change"
 })
-const Day_15 = new Photo({
+const day_15 = new Photo({
   title: 'Half way through',
   description: "I can finally see the changes in my body!!"
 })
