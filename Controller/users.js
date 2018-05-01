@@ -1,10 +1,10 @@
 const express = require('express')
-const { User, Photo } = require('../db/schema')
+const { User } = require('../db/schema')
 const router = express.Router()
 
 router.get('/', (req, res) => {
   User.find()
-  console.log("this is your user", user)
+  console.log("this is your user", User)
     .then(users => {
       res.json(users)
       console.log(users)
