@@ -4,7 +4,6 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   User.find()
-  console.log("this is your user", User)
     .then(users => {
       res.json(users)
       console.log(users)
@@ -14,7 +13,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const newUser = new User(req.body.user)
-  newUser.save().then((user) => {
+  newUser.save()
+  .then((user) => {
     res.json(user)
   }).catch(console.log)
 })
