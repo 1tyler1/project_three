@@ -29,7 +29,7 @@ app.use('/api/users', UsersController)
 
 
 const PhotosController = require('./Controller/photos')
-app.use('/api/users/:userId/', PhotosController)
+app.use('/api/users/:userId/photos', PhotosController)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

@@ -54,6 +54,15 @@ class PhotoPage extends Component {
           this.setState({ photos: res.data.photos })
         })
     }
+
+    createNewPhoto = (newPhoto) => {
+      const userId = this.props.match.params.userId
+      axios.post(`/users/${userId}`, newPhoto)
+        .then((res) => {
+          console.log("RESPONSE FROM NEW photo", res.data.photo)
+          this.setState({ photos: res.data.photos.reverse()})
+        })
+    }
   
     render() {
       console.log("RENDERING", this.state.user)
@@ -93,7 +102,8 @@ class PhotoPage extends Component {
           </div>
           
             {photos}
-            <AddPhoto />
+            <AddPhoto userId={this.props.match.params.userId}
+            createNewPhoto={this.createNewPhoto}/>
         </div>
       )
     }

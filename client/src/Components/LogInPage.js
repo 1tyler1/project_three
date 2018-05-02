@@ -54,9 +54,6 @@ class LogIn extends Component {
         </div>)
     })
 
-
-
-
     return (
       <div class="form">
         <div class="Link-style">

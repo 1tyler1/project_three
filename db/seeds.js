@@ -4,7 +4,14 @@ mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise
 
 
-const { User, Photo } = require('./schema')
+const { User, Photo, Weight } = require('./schema')
+
+const Weight_In = new Weight(
+  {
+    WeighIn: 200,
+    Comment: 'Working on getting my weight down'
+  }
+)
 
 const day_1 = new Photo({
   title: 'Starting my weight loss journey',

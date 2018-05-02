@@ -2,6 +2,15 @@ const express = require('express')
 const { User, Photo } = require('../db/schema')
 const router = express.Router({ mergeParams: true })
 
+router.get('/', (req, res) => {
+  Users.find()
+    .then(users => {
+      res.json(users)
+      console.log(users)
+    })
+    .catch((err) => console.log(err))
+})
+
 router.post('/', (req, res) => {
   User.findById(req.params.userId)
     .then((user) => {
@@ -48,38 +57,5 @@ router.patch('/:id', (req, res) => {
     })
   })
 
-router.delete('/:id', (req, res) => {
-  User.findById(req.params.userId)
-    .then((user) => {
-      user.update({
-        $pull:
-          { photos: { _id: req.params.id } }
-      })
-        .then((data) => {
-          res.sendStatus(200)
-        })
-        .catch(console.error)
-    })
-    .catch(console.error)
-})
-
-router.patch('/:id', (req, res) => {
-  User.findById(req.params.userId)
-    .then((user) => {
-      const photos = user.photos.id(req.params.id)
-      const updatedPhoto = req.body.photo
-      if (updatedPhoto.title) {
-        photo.title = updatedPhoto.title
-      }
-      if (updatedPhoto.description) {
-        photo.description = updatedPhoto.description
-      }
-      user.save()
-        .then((user) => {
-          user.photos = user.photos.reverse()
-          res.json(user)
-        })
-    })
-})
 
 module.exports = router
