@@ -19,13 +19,4 @@ router.post('/', (req, res) => {
   }).catch(console.log)
 })
 
-router.get('/:id', (req, res) => {
-  User.findById(req.params.id)
-    .then((user) => {
-      user.photo = user.photo.reverse()
-      res.json(user)
-    })
-    .catch(console.log)
-})
-
 module.exports = router

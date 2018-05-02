@@ -14,8 +14,7 @@ class HomePage extends Component {
    
     <div class="card center">
       <div class="centered-card">
-        {/* <img src="https://i.imgur.com/RZtchTq.jpg" alt="workout"/>
-       */}
+       
       <div class="card-stacked">
       
         <div id='align' class="card-content center">
@@ -25,7 +24,7 @@ class HomePage extends Component {
           </div>
         </div>
         <div class="card-action">
-        <Link class="waves-effect waves-light btn" to='/login'>Login Link</Link>
+        <Link class="waves-effect waves-light btn" to='/user'>Login</Link>
         </div>
         </div>
       </div>

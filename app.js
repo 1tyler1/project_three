@@ -29,9 +29,9 @@ app.use('/api/users', UsersController)
 
 
 const PhotosController = require('./Controller/photos')
-app.use('/api/users/:userId/photos', PhotosController)
+app.use('/api/users/:userId/', PhotosController)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log("Magic happening on port " + PORT);
+  console.log("You are connected to port " + PORT);
 })

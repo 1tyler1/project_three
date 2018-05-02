@@ -1,113 +1,102 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import AddPhoto from './AddPhoto'
 
 class PhotoPage extends Component {
 
-  state = {
-    user: {
-      userName: 'Tyler'
-    },
-    photos: [{
-      photo: 1,
-      title: 'Starting weightloss!',
-      description: 'Just the beginning'
-    }, {
-      photo: 2,
-      title: 'Halfway point!!',
-      description: 'Halfway through!'
-    }]
-  }
-
-  componentDidMount() {
-    const userId = this.props.match.params.userId
-    console.log(userId)
-    axios.get(`/api/users/${userId}`)
-      .then(response => {
-        console.log(response.data)
-        this.setState({
-          user: response.data,
-          photos: response.data.photos
+    state = {
+      user: {
+        userName: 'Tyler'
+      },
+      photos: []
+    }
+  
+    componentDidMount() {
+      const userId = this.props.match.params.userId
+      console.log(userId)
+      axios.get(`/api/users/${userId}`)
+        .then(res => {
+          console.log(res.data)
+          this.setState({
+            user: res.data,
+            photos: res.data.photos
+          })
         })
+    }
+  
+  
+    deletePhoto = (photos) => {
+      const userId = this.props.match.params.userId
+      console.log("hitting photo id", photos)
+      axios.delete(`/api/users/${userId}`)
+        .then((response) => {
+          console.log(response)
+        })
+    }
+  
+    handleChange = (changedPhoto, event) => {
+      const photos = [...this.state.photos]
+      const newPhotos = photos.map((photo) => {
+        if (photo._id === changedPhoto._id) {
+          photo[event.target.name] = event.target.value
+        }
+        return photo
       })
-  }
-
-  createNewPhoto = () => {
-    axios.post(`/login/${this.state.user._id}/photos`)
-      .then((res) => {
-        console.log("RESPONSE FROM NEW photo", res.data)
-        this.setState({ photos: res.data.photos.reverse()})
+      this.setState({ photos: newPhotos })
+    }
+  
+    updatePhoto = (photo) => {
+      const userId = this.props.match.params.userId
+      console.log("UPDATING PHOTO IN DB")
+      console.log("User Id being Updated", userId)
+      axios.patch(`/user/${userId}`, { photo })
+        .then(res => {
+          this.setState({ photos: res.data.photos })
+        })
+    }
+  
+    render() {
+      console.log("RENDERING", this.state.user)
+      const photos = this.state.photos.map((photo, i) => {
+        return (
+         <div>
+          <div>
+            <input
+              type="text"
+              name="title"
+              value={photo.title}
+              onBlur={() => this.updatePhoto(photo)}
+              onChange={(event) => this.handleChange(photo, event)} />
+  
+            <textarea
+              name="description"
+              value={photo.description}
+              onBlur={() => this.updatePhoto(photo)}
+              onChange={(event) => this.handleChange(photo, event)} />
+      
+  
+            <button class="waves-effect waves-light btn center-align" 
+              onClick={() => { this.deletePhoto(photo._id) }}>
+              Delete
+            </button>
+         </div>
+         </div>
+        )
       })
-  }
-
-  deletePhoto = (photoId) => {
-    console.log("hitting photo id", photoId)
-    axios.delete(`/api/users/${this.state.user._id}/photos/${photoId}`)
-      .then((response) => {
-        console.log(response)
-      })
-  }
-
-  handleChange = (changedPhoto, event) => {
-    const photos = [...this.state.photos]
-    const newPhotos = photos.map((photo) => {
-      if (photo._id === changedPhoto._id) {
-        photo[event.target.name] = event.target.value
-      }
-      return photo
-    })
-    this.setState({ photos: newPhotos })
-  }
-
-  updatePhoto = (photo) => {
-    
-    console.log("UPDATING PHOTO IN DB")
-    console.log("User Id being Updated", this.state.user._id)
-    axios.patch(`/login/${this.state.user.id}/photos/${photo._id}`, { photo })
-      .then(res => {
-        this.setState({ photos: res.data.photos })
-      })
-  }
-
-  render() {
-    console.log("RENDERING", this.state.user)
-    const photos = this.state.photos.map((photo, i) => {
+  
       return (
-        <div>
-          <input
-            type="text"
-            name="title"
-            value={photo.title}
-            onBlur={() => this.updatePhoto(photo)}
-            onChange={(event) => this.handleChange(photo, event)} />
-
-          <textarea
-            name="description"
-            value={photo.description}
-            onBlur={() => this.updatePhoto(photo)}
-            onChange={(event) => this.handleChange(photo, event)} />
-    
-
-          <button
-            onClick={() => { this.deletePhoto(photo._id) }}>
-            Delete photo
-          </button>
-       </div>
-      )
-    })
-
-    return (
-      <div>
-        <div>
-          <h1>{this.state.user.userName}'s Photos</h1>
-          <button onClick={this.createNewPhoto}>New Photo</button>
+        <div class="form">
+          <div>
+            <h1 class="header">{this.state.user.userName}'s Photos</h1>
+            <button  class="waves-effect waves-light btn center-align" onClick={this.createNewPhoto} 
+            to={`/user/${this.props.match.params.userId}/photo`}> New </button>
+          </div>
+          
+            {photos}
+            <AddPhoto />
         </div>
-        <photoContainer>
-          {photos}
-        </photoContainer>
-      </div>
-    )
+      )
+    }
   }
-}
 
-export default PhotoPage
+  export default PhotoPage
