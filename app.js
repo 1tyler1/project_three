@@ -31,7 +31,8 @@ app.use('/api/users', UsersController)
 const PhotosController = require('./Controller/photos')
 app.use('/api/users/:userId/photos', PhotosController)
 
-const WeighInController = require('/api/users/:userId/photos/:photoId/weighin')
+const WeighInController = require('./Controller/weighin')
+app.use('/api/users/:userId/weight', WeighInController)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

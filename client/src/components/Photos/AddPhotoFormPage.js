@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class AddPhoto extends Component {
+class AddPhotoFormPage extends Component {
     state= {
         newPhoto: {}
     }
@@ -51,4 +51,4 @@ class AddPhoto extends Component {
 
 
 
-export default AddPhoto;
+export default AddPhotoFormPage;
