@@ -37,7 +37,12 @@ class LogIn extends Component {
 
   handleSignUp = (e) => {
     e.preventDefault()
-    this.createUser()
+    axios.post('/api/users', { user: this.state.user })
+    .then((res) => {
+      const users = [...this.state.users]
+      users.push(res.data)
+      this.setState({users})
+    })
   }
 
   handleChange = (event) => {
@@ -56,29 +61,30 @@ class LogIn extends Component {
 
     return (
       <div class="form">
-        <div class="Link-style">
-          <Link to='/'>Return Home</Link>
-        </div>
         <div>
+          
+        </div>
+        <div class="Link-style">
+        <Link to='/'>Return Home</Link>
         <h3>Log-In</h3>
         <h6>Please Select an Existing User</h6>
         <div class="update">
-        <p class="styleuserlinks"> 
-        <div> {userLinks} </div> 
-        </p>
+        
+       {userLinks} 
+       
        </div>
         </div>
         <h3>Sign-Up</h3>
         <form onSubmit={this.handleSignUp}>
           <div>
             <label htmlFor="userName">User Name</label>
-            <input onChange={this.handleChange} name="userName" type="text" value={this.state.userName} />
+            <input onChange={this.handleChange} name="userName" type="text"/>
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input onChange={this.handleChange} name="password" type="text" value={this.state.password} />
+            <input onChange={this.handleChange} name="password" type="text" />
           </div>
-          <button class="waves-effect waves-light btn center-align btn-small center" to='/user'>Send</button>
+          <button class="waves-effect waves-light btn center-align btn-small center">Send</button>
         </form>
       </div>
     

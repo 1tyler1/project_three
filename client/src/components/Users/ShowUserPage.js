@@ -1,13 +1,83 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import UpdateUserFormPage from './UpdateUserFormPage';
 
 class ShowUserPage extends Component {
-    render() {
-        return (
-            <div>
-               <h1 class="header">{this.state.user.userName}'s Photos</h1> 
-            </div>
-        );
+  state = {
+    users: [],
+    user: {
+      userName: '',
+      password: '',
+    },
+    userRemoved: false,
+  };
+
+  componentWillMount() {
+    if (this.props.match.params) {
+      const { userId } = this.props.match.params;
+      axios.get(`/api/users/${userId}`).then(res => {
+        this.setState({ user: res.data });
+      });
     }
+  }
+
+  updateUser = updatedUser => {
+    const userId = this.state.user._id;
+    axios
+      .patch(`/api/users/${userId}`, {
+        user: updatedUser,
+      })
+      .then(res => {
+        const resUser = res.data;
+        this.setState({ user: resUser });
+      });
+  };
+
+  deleteUser = deletedUser => {
+    const userId = this.state.user._id;
+
+    axios.delete(`/api/users/${userId}`).then(() => {
+      this.setState({ userRemoved: true });
+    });
+  };
+
+  handleDeleteUser = e => {
+    e.preventDefault();
+    this.deleteUser();
+  };
+
+  render() {
+    if (this.state.userRemoved) return <Redirect to={`/`} />;
+
+    return (
+      <div class="form">
+        <div>
+          <h3>Account Information</h3>
+          <h6>{this.state.user.userName}</h6>
+          <div>
+            <button className="waves-effect waves-light btn center-align btn-small center">
+              Photos
+            </button>
+          </div>
+          <div>
+            <button className="waves-effect waves-light btn center-align btn-small center">
+              Weight
+            </button>
+          </div>
+        </div>
+        <UpdateUserFormPage
+          user={this.state.user}
+          updateUser={this.updateUser}
+        />
+        <button
+          onClick={this.handleDeleteUser}
+          className="waves-effect waves-light btn center-align btn-small">
+          Delete User
+        </button>{' '}
+      </div>
+    );
+  }
 }
 
 export default ShowUserPage;
