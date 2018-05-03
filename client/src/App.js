@@ -9,7 +9,7 @@ import PhotoPage from './components/Photos/PhotoPage'
 import ShowUserPage from './components/Users/ShowUserPage'
 import AddPhotoFormPage from './components/Photos/AddPhotoFormPage'
 import UpdateUserFormPage from './components/Users/UpdateUserFormPage';
-import NewUserFormPage from './components/Users/NewUserFormPage'
+
 import NewPhotoFormPage from './components/Photos/NewPhotoFormPage'
 import UpdatePhotoFormPage from './components/Photos/UpdatePhotoFormPage'
 
@@ -33,7 +33,7 @@ class App extends Component {
               <Route exact path='/user/:userId/photos' component={PhotoPage} />
               
               <Route exact path="/user/:userId/edit" component={UpdateUserFormPage}/>
-              <Route exact path="/user/:userId/new" component ={NewUserFormPage} />
+             
               {/* delete and show in the show route */}
               <Route exact path='/user/:userId/photos/add' component={AddPhotoFormPage} />
               <Route exact path="/user/:userId/photos/edit" component={UpdatePhotoFormPage}/>

@@ -56,25 +56,33 @@ class ShowUserPage extends Component {
           <h3>Account Information</h3>
           <h6>{this.state.user.userName}</h6>
           <div>
+          <div class="button">
+          <div>
             <button className="waves-effect waves-light btn center-align btn-small center">
               Photos
             </button>
+            
           </div>
           <div>
+          
             <button className="waves-effect waves-light btn center-align btn-small center">
               Weight
             </button>
+            </div>
+            </div>
           </div>
         </div>
         <UpdateUserFormPage
           user={this.state.user}
           updateUser={this.updateUser}
         />
+        <div class="button">
         <button
           onClick={this.handleDeleteUser}
           className="waves-effect waves-light btn center-align btn-small">
           Delete User
         </button>{' '}
+        </div>
       </div>
     );
   }
