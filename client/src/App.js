@@ -9,7 +9,6 @@ import PhotoPage from './components/Photos/PhotoPage'
 import ShowUserPage from './components/Users/ShowUserPage'
 import AddPhotoFormPage from './components/Photos/AddPhotoFormPage'
 import UpdateUserFormPage from './components/Users/UpdateUserFormPage';
-
 import NewPhotoFormPage from './components/Photos/NewPhotoFormPage'
 import UpdatePhotoFormPage from './components/Photos/UpdatePhotoFormPage'
 
