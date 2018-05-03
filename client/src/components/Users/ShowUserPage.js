@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import UpdateUserFormPage from './UpdateUserFormPage';
 
 class ShowUserPage extends Component {
@@ -56,19 +56,23 @@ class ShowUserPage extends Component {
           <h3>Account Information</h3>
           <h6>{this.state.user.userName}</h6>
           <div>
-          <div class="button">
-          <div>
-            <button className="waves-effect waves-light btn center-align btn-small center">
-              Photos
-            </button>
-            
-          </div>
-          <div>
-          
-            <button className="waves-effect waves-light btn center-align btn-small center">
-              Weight
-            </button>
-            </div>
+          <div class="center">
+              <div>
+                <Link to={`/users/${this.props.match.params.userId}/photos`}>
+                  <button className="waves-effect waves-light btn center-align btn-small center">
+                    Photos
+                  </button>
+                </Link>
+              </div>
+             
+                <Link to={`/users/${this.props.match.params.userId}/weight`}>
+                
+                  <button className="waves-effect waves-light btn center-align btn-small center">
+                    Weight
+                  </button>
+                 
+                </Link>
+             
             </div>
           </div>
         </div>
@@ -76,14 +80,16 @@ class ShowUserPage extends Component {
           user={this.state.user}
           updateUser={this.updateUser}
         />
-        <div class="button">
-        <button
-          onClick={this.handleDeleteUser}
-          className="waves-effect waves-light btn center-align btn-small">
-          Delete User
-        </button>{' '}
+       
+          <div className="center">
+            <button
+              onClick={this.handleDeleteUser}
+              className="waves-effect waves-light btn center-align btn-small">
+              Delete User
+            </button>
+          </div>
         </div>
-      </div>
+     
     );
   }
 }

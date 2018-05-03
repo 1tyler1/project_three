@@ -85,7 +85,7 @@ class LogIn extends Component {
             <input onChange={this.handleChange} name="password" type="text" />
           </div>
           <div class="button">
-          <button class="waves-effect waves-light btn center-align btn-small center">Send</button>
+         <button class="waves-effect waves-light btn center-align btn-small center">Send</button>
           </div>
         </form>
       </div>

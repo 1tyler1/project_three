@@ -34,7 +34,4 @@ app.use('/api/users/:userId/photos', PhotosController)
 const WeighInController = require('./Controller/weighin')
 app.use('/api/users/:userId/weight', WeighInController)
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log("You are connected to port " + PORT);
-})
+
