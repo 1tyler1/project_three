@@ -62,7 +62,11 @@ class LogIn extends Component {
         <div>
         <h3>Log-In</h3>
         <h6>Please Select an Existing User</h6>
-        <p class="align">{userLinks}</p>
+        <div class="update">
+        <p class="styleuserlinks"> 
+        <div> {userLinks} </div> 
+        </p>
+       </div>
         </div>
         <h3>Sign-Up</h3>
         <form onSubmit={this.handleSignUp}>
@@ -74,9 +78,10 @@ class LogIn extends Component {
             <label htmlFor="password">Password</label>
             <input onChange={this.handleChange} name="password" type="text" value={this.state.password} />
           </div>
-          <button class="waves-effect waves-light btn center-align" to='/user'>Sign Up</button>
+          <button class="waves-effect waves-light btn center-align btn-small center" to='/user'>Send</button>
         </form>
       </div>
+    
     )
   }
 }

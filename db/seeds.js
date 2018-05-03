@@ -6,25 +6,33 @@ mongoose.Promise = global.Promise
 
 const { User, Photo, Weight } = require('./schema')
 
-const Weight_In = new Weight(
+const Weigh_In1 = new Weight(
   {
-    WeighIn: 200,
-    Comment: 'Working on getting my weight down'
+    weighIn: 200,
+    comment: 'Working on getting my weight down'
   }
 )
 
-const day_1 = new Photo({
+const Weigh_In2 = new Weight(
+  {
+    weighIn: 190,
+    comment: 'Getting my weight down'
+  }
+)
+
+const Day_1 = new Photo({
   title: 'Starting my weight loss journey',
   description: "I'm excited about finally committing to making a change"
 })
-const day_15 = new Photo({
+const Day_15 = new Photo({
   title: 'Half way through',
   description: "I can finally see the changes in my body!!"
 })
 const Tyler = new User({
   userName: 'Tyler_fr0st',
   password: 'youllneverguess1',
-  photos: [Day_1, Day_15]
+  photos: [Day_1, Day_15],
+  weight: [Weigh_In1, Weigh_In2]
 })
 
 User.remove({})

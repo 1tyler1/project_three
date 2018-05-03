@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import AddPhoto from './AddPhoto'
+import NewPhotoFormPage from './NewPhotoFormPage';
 
 class PhotoPage extends Component {
 
@@ -102,7 +102,7 @@ class PhotoPage extends Component {
           </div>
           
             {photos}
-            <AddPhoto userId={this.props.match.params.userId}
+            <NewPhotoFormPage userId={this.props.match.params.userId}
             createNewPhoto={this.createNewPhoto}/>
         </div>
       )

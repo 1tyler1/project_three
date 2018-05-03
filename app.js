@@ -31,6 +31,8 @@ app.use('/api/users', UsersController)
 const PhotosController = require('./Controller/photos')
 app.use('/api/users/:userId/photos', PhotosController)
 
+const WeighInController = require('/api/users/:userId/photos/:photoId/weighin')
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("You are connected to port " + PORT);
