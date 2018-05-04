@@ -8,6 +8,7 @@ import LogInPage from './components/LogInPage'
 import PhotoPage from './components/Photos/PhotoPage'
 import ShowUserPage from './components/Users/ShowUserPage'
 import NewPhotoFormPage from './components/Photos/NewPhotoFormPage'
+import Weight from './components/Weight'
 
 
 
@@ -15,7 +16,7 @@ import NewPhotoFormPage from './components/Photos/NewPhotoFormPage'
 class App extends Component {
   render() {
     return (
-      <div>
+     
       <div>
         <Router>
           
@@ -29,7 +30,7 @@ class App extends Component {
               {/* photos routes */}
               <Route exact path='/user/:userId/photos' component={PhotoPage} />
               <Route exact path='/user/:userId/photos/:photoId' component={NewPhotoFormPage} />
-            
+              <Route exact path='/user/:userId/weight' component={Weight} />
              
               {/* delete and show in the show route */}
              
@@ -42,7 +43,7 @@ class App extends Component {
 
       
       <footer class="footer">Tyler Lauren Designs</footer>      
-      </div>
+     
       </div>
     )
   }

@@ -55,41 +55,35 @@ class ShowUserPage extends Component {
         <div>
           <h3>Account Information</h3>
           <h6>{this.state.user.userName}</h6>
-          <div>
+          
           <div class="center">
-              <div>
-                <Link to={`/user/${this.props.match.params.userId}/photos`}>
-                  <button className="waves-effect waves-light btn center-align btn-small center">
+              
+                <Link class="waves-effect waves-light btn center-align btn-small center" to={`/user/${this.props.match.params.userId}/photos`}>
                     Photos
-                  </button>
                 </Link>
               </div>
-             
-                <Link to={`/users/${this.props.match.params.userId}/weight`}>
-                
-                  <button className="waves-effect waves-light btn center-align btn-small center">
+              <div class="center">
+                <Link class="waves-effect waves-light btn center-align btn-small center" to={`/users/${this.props.match.params.userId}/weight`}>
                     Weight
-                  </button>
-                 
                 </Link>
-             
+             </div>
             </div>
-          </div>
-        </div>
+         
+     
         <UpdateUserFormPage
           user={this.state.user}
           updateUser={this.updateUser}
         />
        
-          <div className="center">
+          <div class="center">
             <button
               onClick={this.handleDeleteUser}
-              className="waves-effect waves-light btn center-align btn-small">
+              class="waves-effect waves-light btn center-align btn-small">
               Delete User
             </button>
           </div>
-        </div>
-     
+   
+          </div>
     );
   }
 }

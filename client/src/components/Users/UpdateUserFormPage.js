@@ -37,7 +37,7 @@ class UpdateUserFormPage extends Component {
               value={this.state.updatedUser.userName}
             />
           </div>
-          <div className="center">
+          <div>
             <label htmlFor="password">Password</label>
             <input
               onChange={this.handleUpdateUserChange}

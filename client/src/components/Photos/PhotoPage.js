@@ -60,8 +60,9 @@ class PhotoPage extends Component {
     return (
       <div class="form">
           <h3>Photos</h3>
-        <br />
-        <img scr='https://i.imgur.com/RugY75D.png' alt='workout' />
+     
+        <img src='https://i.imgur.com/RugY75D.png' alt="workout" />
+        <p class="pmedia">Title: Day 1 </p>
           <div>
             <div class="center">
               <div>

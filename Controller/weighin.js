@@ -1,21 +1,21 @@
 const express = require('express')
-const { User } = require('../db/schema')
+const { Weight } = require('../db/schema')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  User.find()
-    .then(users => {
-      res.json(users)
-      console.log(users)
+  Weight.find()
+    .then(weight => {
+      res.json(weight)
+      console.log(weight)
     })
     .catch((err) => console.log(err))
 })
 
 router.post('/', (req, res) => {
-  User.findById(req.params.userId)
-    .then((user) => {
-      user.photos.push(new Photo())
-      user.save()
+  Weight.findById(req.params.WeightId)
+    .then((Weight) => {
+      Weight.photos.push(new Photo())
+      Weight.save()
         .then((data) => {
           res.json(data)
         })
@@ -25,20 +25,20 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/:userId', (req, res) => {
-  User.findById(req.params.userId)
-    .then(user => {
-      res.json(users)
-      console.log(users)
+router.get('/:WeightId', (req, res) => {
+  Weight.findById(req.params.WeightId)
+    .then(Weight => {
+      res.json(weight)
+      console.log(weight)
 })
     .catch((err) => console.log(err))
 })
 
-router.delete('/:userId', (req, res) => {
+router.delete('/:WeightId', (req, res) => {
 
-    User.findById(req.params.userId)
-    .then((user) => {
-        user.update({
+    Weight.findById(req.params.WeightId)
+    .then((Weight) => {
+        Weight.update({
             $pull:
             { photos: {_id: req.params.id} }
         })
@@ -50,19 +50,19 @@ router.delete('/:userId', (req, res) => {
     .catch(console.error)
 });
 
-router.patch('/:userId', (req, res) => {
-    User.findById(req.params.userId).then((user) => {
+router.patch('/:WeightId', (req, res) => {
+    Weight.findById(req.params.WeightId).then((Weight) => {
       const update = req.body.photo
-      const photo = user.photo.id(req.params.id)
+      const photo = Weight.photo.id(req.params.id)
       if (update.title) {
         photo.title = update.title
       }
       if (update.description) {
         photo.description = update.description
       }
-      user.save().then((user) => {
-        user.photos = user.photos.reverse()
-        res.json(user)
+      Weight.save().then((Weight) => {
+        Weight.photos = Weight.photos.reverse()
+        res.json(Weight)
       })
     })
   })

@@ -18,7 +18,7 @@ class HomePage extends Component {
       <div class="card-stacked">
       
         <div id='align' class="card-content center">
-        <h1 class="center">Progress</h1>
+        <h1>Progress</h1>
         <div class="align-text">
           <p class="center">Progress is app an that allows you to visualize your progression, whether weight loss or making gains. Best wishes on your journey to changing your body for the best!</p>
           </div>
