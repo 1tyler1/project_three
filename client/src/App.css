@@ -104,9 +104,17 @@
         
         @media only screen and (max-width: 800px) {
             .centered-card,
-            body,
-            .center,
-            {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center
+            }
+        }
+        
+        @media only screen and (max-width: 800px) {
+            .center {
+                font-size: 12px;
                 display: flex;
                 justify-content: center;
                 align-items: center;

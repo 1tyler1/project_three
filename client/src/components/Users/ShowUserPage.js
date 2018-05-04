@@ -58,7 +58,7 @@ class ShowUserPage extends Component {
           <div>
           <div class="center">
               <div>
-                <Link to={`/users/${this.props.match.params.userId}/photos`}>
+                <Link to={`/user/${this.props.match.params.userId}/photos`}>
                   <button className="waves-effect waves-light btn center-align btn-small center">
                     Photos
                   </button>

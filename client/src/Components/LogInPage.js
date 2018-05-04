@@ -84,7 +84,7 @@ class LogIn extends Component {
             <label htmlFor="password">Password</label>
             <input onChange={this.handleChange} name="password" type="text" />
           </div>
-          <div class="button">
+          <div class="center">
          <button class="waves-effect waves-light btn center-align btn-small center">Send</button>
           </div>
         </form>
