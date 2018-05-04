@@ -13,22 +13,22 @@ class NewPhotoFormPage extends Component {
       return futureState
   }
 
-  updateUserfunction = (event) => {
+  updatePhotofunction = (event) => {
       event.preventDefault()
-    this.props.updateUser(this.state.updatedUser)
+    this.props.updatePhoto(this.state.updatedPhoto)
   }
 
-  handleUpdateUserChange = event => {
+  handleUpdatePhoto = event => {
     event.preventDefault();
-    const user = { ...this.state.updatedUser };
-    user[event.target.name] = event.target.value;
-    this.setState({ updatedUser: user });
+    const photo = { ...this.state.updatedPhoto };
+    photo[event.target.name] = event.target.value;
+    this.setState({ updatedPhoto: photo });
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.newPhotofunction}>
+        <form onSubmit={this.updatePhotofunction}>
           <div>
           <div className="center">
             <button className="waves-effect waves-light btn center-align btn-small">
@@ -37,7 +37,7 @@ class NewPhotoFormPage extends Component {
           </div>
             <label htmlFor="Title">Title</label>
             <input
-              onChange={this.handleUpdatePhotoTitleChange}
+              onChange={this.handleUpdatePhoto}
               name="Title"
               type="text"
               value={this.state.updatedPhoto.title}
