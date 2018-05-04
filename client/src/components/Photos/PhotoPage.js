@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import NewPhotoFormPage from './NewPhotoFormPage';
 
@@ -32,7 +32,7 @@ class PhotoPage extends Component {
     const userId = this.state.user._id;
     const photoId = this.state.user.photo._id;
     axios
-      .patch(`/api/users/${userId}`, {
+      .patch(`/api/users/${userId}/photos/${photoId}`, {
         photo: updatedPhoto,
       })
       .then(res => {
